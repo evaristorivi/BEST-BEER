@@ -5,17 +5,18 @@ from django.db import models
 
 # Create your models here.
 class Usuarios(models.Model):
-    choice_text = models.CharField(max_length=200)
+    nombre_usuario = models.CharField(max_length=200)
     email = models.EmailField(max_length=70,blank=True)
-    pub_date = models.DateTimeField('date published')
-
-
+class Votos(models.Model):
+    una_estrella = models.IntegerField(default=0)
+    dos_estrella = models.IntegerField(default=0)
+    tres_estrella = models.IntegerField(default=0)
+    cuatro_estrella = models.IntegerField(default=0)
+    cinco_estrella = models.IntegerField(default=0)
 class Cervezas(models.Model):
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-	votes = models.IntegerField(default=0)
-   	docfile = models.FileField(upload_to='fotos/%Y/%m/%d')
-
+   	nombre_cerveza = models.CharField(max_length=200)
+   	observaciones = models.TextField()
+   	fotos = models.FileField(upload_to='fotos/%Y/%m/%d')
 class Pubs(models.Model):
-    choice_text = models.CharField(max_length=200)
-    choice_text = models.CharField(max_length=200)
+    nombre_Pub = models.CharField(max_length=200)
+    direccion_pub = models.CharField(max_length=200)
