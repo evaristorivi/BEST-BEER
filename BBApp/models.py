@@ -16,8 +16,8 @@ class Cerveza(models.Model):
    	observaciones = models.TextField()
    	foto = models.FileField(upload_to='fotos/%Y/%m/%d')
 class Pertenencia(models.Model):
-    nombre_Pub = models.ManyToManyField(Pub)
+    nombre_pub = models.ManyToManyField(Pub)
     cerveza = models.ManyToManyField(Cerveza)
 class Pub(models.Model):
-    nombre_Pub = models.CharField(max_length=200)
+    nombre_pub = models.CharField(max_length=200)
     direccion_pub = models.CharField(max_length=200)    
