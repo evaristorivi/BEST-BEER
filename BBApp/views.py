@@ -5,12 +5,16 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from BBApp.models import *
+from BBApp.models import Usuario
+from BBApp.models import Cerveza
+from BBApp.models import Pub
+from BBApp.models import Votaciones
+
 from django.views.generic import ListView
 
 class UsuarioList(ListView):
     model = Usuario
-    template_name="templates/BBApp/usuarios_list.html"
+    template_name="BBApp/usuarios_list.html"
 
 class CervezaList(ListView):
     model = Cerveza

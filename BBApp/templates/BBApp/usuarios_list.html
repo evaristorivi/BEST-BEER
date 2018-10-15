@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>Publishers</h2>
+    <h2>Usuarios</h2>
     <ul>
-        {% for publisher in object_list %}
-            <li>{{ publisher.name }}</li>
+        {% for Usuarios in object_list %}
+            <li>{{ Usuarios.Usuario.nombre_usuario }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
