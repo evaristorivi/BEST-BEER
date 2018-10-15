@@ -18,9 +18,12 @@ class UsuarioList(ListView):
 
 class CervezaList(ListView):
     model = Cerveza
+    template_name="BBApp/cervezas_list.html"
 
 class PubList(ListView):
     model = Pub
+    template_name="BBApp/pubs_list.html"
 
 class VotacionesList(ListView):
     model = Votaciones
+    template_name="BBApp/votaciones_list.html"

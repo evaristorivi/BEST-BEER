@@ -20,4 +20,7 @@ from BBApp.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^usuario/$', UsuarioList.as_view(), name="usuarios"),
+    url(r'^cerveza/$', CervezaList.as_view(), name="cervezas"),
+    url(r'^pub/$', PubList.as_view(), name="pubs"),
+    url(r'^votacion/$', VotacionesList.as_view(), name="votaciones"),
 ]

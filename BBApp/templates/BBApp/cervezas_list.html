@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Cervezas</h2>
+    <ul>
+        {% for cer in object_list %}
+            <li>{{ cer.nombre_cerveza  }} - {{ cer.observaciones  }} - <img src="/{{ cer.foto }}"></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

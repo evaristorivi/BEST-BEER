@@ -3,8 +3,8 @@
 {% block content %}
     <h2>Usuarios</h2>
     <ul>
-        {% for Usuarios in object_list %}
-            <li>{{ Usuarios.Usuario.nombre_usuario }}</li>
+        {% for usr in object_list %}
+            <li>{{ usr.nombre_usuario  }} - {{ usr.email  }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
