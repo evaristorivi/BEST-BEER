@@ -9,12 +9,24 @@ from BBApp.models import Usuario
 from BBApp.models import Cerveza
 from BBApp.models import Pub
 from BBApp.models import Votaciones
+from django.views.generic.edit import CreateView
+from django.views.generic.edit import UpdateView
 
 from django.views.generic import ListView
 
 class UsuarioList(ListView):
     model = Usuario
     template_name="BBApp/usuarios_list.html"
+
+class UsuarioCreate(CreateView):
+    model = Usuario
+    fields = '__all__'
+    template_name="BBApp/usuarios_create.html"
+
+class UsuarioUpdate(UpdateView):
+    model = Usuario
+    fields = '__all__'
+    template_name="BBApp/usuarios_update.html"
 
 class CervezaList(ListView):
     model = Cerveza

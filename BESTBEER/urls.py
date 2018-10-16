@@ -19,8 +19,10 @@ from BBApp.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^usuario/$', UsuarioList.as_view(), name="usuarios"),
-    url(r'^cerveza/$', CervezaList.as_view(), name="cervezas"),
-    url(r'^pub/$', PubList.as_view(), name="pubs"),
-    url(r'^votacion/$', VotacionesList.as_view(), name="votaciones"),
+    url(r'^usuario/$', UsuarioList.as_view(), name="usuarios_list"),
+    url(r'^usuario/create', UsuarioCreate.as_view(), name="usuarios_create"),
+    url(r'^usuario/update/(?P<pk>\d+)', UsuarioUpdate.as_view(), name="usuarios_update"),
+    url(r'^cerveza/$', CervezaList.as_view(), name="cervezas_list"),
+    url(r'^pub/$', PubList.as_view(), name="pubs_list"),
+    url(r'^votacion/$', VotacionesList.as_view(), name="votaciones_list"),
 ]
