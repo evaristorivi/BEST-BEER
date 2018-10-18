@@ -19,6 +19,7 @@ from BBApp.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^signup/$', signup, name='signup'),
     url(r'^usuarios/$', UsuarioList.as_view(), name="usuarios_list"),
     url(r'^usuarios/create', UsuarioCreate.as_view(), name="usuarios_create"),
     url(r'^usuarios/update/(?P<pk>\d+)', UsuarioUpdate.as_view(), name="usuarios_update"),
