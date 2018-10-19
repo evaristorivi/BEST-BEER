@@ -14,10 +14,10 @@ from django.views.generic.edit import UpdateView
 from django.views.generic import ListView
 from django.urls import reverse_lazy
 from django.views.generic.edit import DeleteView
-
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
+
 
 def signup(request):
     if request.method == 'POST':
@@ -28,10 +28,11 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('BBApp/usuarios/usuarios_list.html')
+            return redirect('home')
     else:
         form = UserCreationForm()
-    return render(request, 'BBApp/usuarios/signup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form})
+
 
 
 class UsuarioList(ListView):
