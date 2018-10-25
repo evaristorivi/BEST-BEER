@@ -8,17 +8,17 @@ from django.dispatch import receiver
 # Create your models here.
 
 class Usuario(models.Model):
-    nombre_usuario = models.CharField(max_length=200)
-    email = models.EmailField(max_length=70,blank=True)
+    localidad = models.CharField(max_length=200)
+    estado_civil = models.EmailField(max_length=70,blank=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
-        return self.nombre_usuario
+        return self.user.username
 
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
         Usuario.objects.create(user=instance)
-    instance.profile.save()
+    instance.usuario.save()
 
 
 class Cerveza(models.Model):

@@ -4,18 +4,33 @@
   <h2>Registro</h2>
   <form method="post">
     {% csrf_token %}
-    {% for field in form %}
-      <p>
-        {{ field.label_tag }}<br>
-        {{ field }}
-        {% if field.help_text %}
-          <small style="color: grey">{{ field.help_text }}</small>
-        {% endif %}
-        {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
-        {% endfor %}
-      </p>
-    {% endfor %}
-    <button type="submit">Sign up</button>
+    <p>Usuario</p>
+    {{ form.username }}
+
+    <p>Primer Nombre</p>
+    {{ form.first_name }}
+
+    <p>Segundo Nombre</p>
+    {{ form.last_name }}
+
+    <p>email</p>
+    {{ form.email }}
+
+    <p>Localidad</p>
+    {{ form.localidad }}
+
+    <p>Estado Civil</p>
+    {{ form.estado_civil }}
+
+    <p>Contraseña</p>
+    {{ form.password1 }}
+
+     <p>Confirmación de Contraseña</p>
+    {{ form.password2 }}
+
+
+    <button type="submit">Enviar</button>
   </form>
 {% endblock %}
+
+
