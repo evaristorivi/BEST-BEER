@@ -6,7 +6,10 @@
   <h2>Acceder</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
+    <p>Nombre Usuario</p>
+    {{ form.username }}
+    <p>Contraseña</p>
+    {{ form.password }}
+    <button type="submit">Acceder</button>
   </form>
 {% endblock %}
