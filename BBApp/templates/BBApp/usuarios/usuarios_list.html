@@ -4,7 +4,7 @@
     <h2>Usuarios</h2>
     <ul>
         {% for usr in object_list %}
-            <li>{{ usr.nombre_usuario  }} - {{ usr.email  }}</li>
+            <li>{{ usr.user  }} - {{ usr.email  }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
