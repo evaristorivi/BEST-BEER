@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Pubs</h2>
+    <ul>
+        {% for ppuubb in object_list %}
+            <li>{{ ppuubb.nombre_pub  }} - {{ ppuubb.direccion_pub  }} - {{ ppuubb.cerveza  }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
