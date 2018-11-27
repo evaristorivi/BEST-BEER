@@ -18,6 +18,8 @@ from django.contrib import admin
 from BBApp.views import *
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
@@ -42,3 +44,7 @@ urlpatterns = [
     url(r'^votaciones/update', VotacionesUpdate.as_view(), name="votaciones_update"),
     url(r'^votaciones/delete', VotacionesDelete.as_view(), name="votaciones_delete"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

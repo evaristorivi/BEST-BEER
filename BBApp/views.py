@@ -44,6 +44,9 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 
+
+
+
 class UsuarioList(ListView):
     model = Usuario
     template_name="BBApp/usuarios/usuarios_list.html"
