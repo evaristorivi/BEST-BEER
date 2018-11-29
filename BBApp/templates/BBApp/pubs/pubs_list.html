@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% csrf_token %}
     <h2>Pubs</h2>
     <ul>
-        {% for ppuubb in object_list %}
-            <li>{{ ppuubb.nombre_pub  }} - {{ ppuubb.direccion_pub  }} - {{ ppuubb.cerveza  }}</li>
+        {% for pub in object_list %}
+            <li>{{ pub.nombre_pub  }} - {{ pub.direccion_pub  }}</li>
+            {% for birra in pub.cerveza.all %}
+            	{{ birra }}
+            {% endfor %}
         {% endfor %}
     </ul>
 {% endblock %}

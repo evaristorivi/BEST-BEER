@@ -94,7 +94,7 @@ class CervezaDelete(DeleteView):
 
 class PubList(ListView):
     model = Pub
-    template_name="BBApp/pubs_list.html"
+    template_name="BBApp/pubs/pubs_list.html"
 
 class PubCreate(CreateView):
     model = Pub
