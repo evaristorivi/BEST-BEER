@@ -12,10 +12,3 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'localidad', 'estado_civil',  'password1', 'password2',  )
-
-class CreavotoForm:
-        model = Votaciones
-        fields = ('usuario', 'voto', 'cerveza', 'pub',  )
-
-
- 

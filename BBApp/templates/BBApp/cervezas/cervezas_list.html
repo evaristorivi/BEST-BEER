@@ -2,9 +2,12 @@
 
 {% block content %}
     <h2>Cervezas</h2>
-    <ul>
+    <table class=".table">
+      <tr>
+
         {% for cer in object_list %}
-            <li>{{ cer.nombre_cerveza  }} - {{ cer.observaciones  }} - <img src="/{{ cer.foto }}"></li>
+           <td> {{ cer.nombre_cerveza  }} - {{ cer.observaciones  }} - <img width="100" src="{{ cer.foto.url }}"></li>
         {% endfor %}
-    </ul>
+           </td>
+    </table> 
 {% endblock %}

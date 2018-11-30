@@ -23,14 +23,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
+    url(r'^$', VotacionesCreate.as_view(), name="home"),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^usuarios/$', UsuarioList.as_view(), name="usuarios_list"),
-    url(r'^usuarios/create', UsuarioCreate.as_view(), name="usuarios_create"),
-    url(r'^usuarios/update/(?P<pk>\d+)', UsuarioUpdate.as_view(), name="usuarios_update"),
-    url(r'^usuarios/delete/(?P<pk>\d+)', UsuarioDelete.as_view(), name="usuarios_delete"),
     url(r'^cervezas/$', CervezaList.as_view(), name="cervezas_list"),
     url(r'^cervezas/create', CervezaCreate.as_view(), name="cervezas_create"),
     url(r'^cervezas/update', CervezaUpdate.as_view(), name="cervezas_update"),
@@ -41,8 +38,6 @@ urlpatterns = [
     url(r'^pub/delete', PubDelete.as_view(), name="pubs_delete"),
     url(r'^votaciones/$', VotacionesList.as_view(), name="votaciones_list"),
     url(r'^votaciones/create', VotacionesCreate.as_view(), name="votaciones_create"),
-    url(r'^votaciones/update', VotacionesUpdate.as_view(), name="votaciones_update"),
-    url(r'^votaciones/delete', VotacionesDelete.as_view(), name="votaciones_delete"),
 ]
 
 if settings.DEBUG:

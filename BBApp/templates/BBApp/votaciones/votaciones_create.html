@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+ <h2>Votando a tu cerveza...</h2>
 
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
+<form class="form-inline" method="post">{% csrf_token %}
+<div class="form-group">
+
+    {{ request.user }}
+    {{ form.cerveza }}
+    {{ form.voto }}
+    {{ form.pub }}
+
     <input type="submit" value="Save">
+        </div>
+
 </form>
 {% endblock %}

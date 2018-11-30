@@ -18,10 +18,9 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from BBApp.forms import SignUpForm
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
-@login_required
 def home(request):
     return render(request, 'home.html')
 
@@ -51,23 +50,7 @@ class UsuarioList(ListView):
     model = Usuario
     template_name="BBApp/usuarios/usuarios_list.html"
 
-class UsuarioCreate(CreateView):
-    model = Usuario
-    fields = '__all__'
-    template_name="BBApp/usuarios/usuarios_create.html"
-    success_url = reverse_lazy('usuarios_list')
 
-class UsuarioUpdate(UpdateView):
-    model = Usuario
-    fields = '__all__'
-    template_name="BBApp/usuarios/usuarios_update.html"
-    success_url = reverse_lazy('usuarios_list')
-
-class UsuarioDelete(DeleteView):
-    model = Usuario
-    fields = '__all__'
-    template_name="BBApp/usuarios/usuarios_update.html"
-    success_url = reverse_lazy('usuarios_list')
 
 class CervezaList(ListView):
     model = Cerveza
@@ -118,20 +101,10 @@ class VotacionesList(ListView):
     model = Votaciones
     template_name="BBApp/votaciones/votaciones_list.html"
 
-class VotacionesCreate(CreateView):
+class VotacionesCreate(LoginRequiredMixin, CreateView):
     model = Votaciones
     fields = '__all__'
+    login_url = '/login/'
     template_name="BBApp/votaciones/votaciones_create.html"
     success_url = reverse_lazy('votaciones_list')
 
-class VotacionesUpdate(UpdateView):
-    model = Votaciones
-    fields = '__all__'
-    template_name="BBApp/votaciones/votaciones_update.html"
-    success_url = reverse_lazy('votaciones_list')
-
-class VotacionesDelete(DeleteView):
-    model = Votaciones
-    fields = '__all__'
-    template_name="BBApp/votaciones/votaciones_delete.html"
-    success_url = reverse_lazy('votaciones_list')
