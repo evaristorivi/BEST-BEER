@@ -7,9 +7,15 @@
      
    {% for vot in object_list %}
     <tr>
-           <td> <img width="100" src="{{ vot.cerveza.foto.url }}" - {{ vot.pub  }}</li>
+           <td><h1 class="display-3">{{ vot.voto  }}</h1></td>
+           <td> <img width="100" src="{{ vot.cerveza.foto.url }}" - {{ vot.pub  }}
+           </td>
+           <td>
             <br />
-            El usuario {{ vot.usuario }} ha calificado con {{ vot.voto  }} la cerveza: {{ vot.cerveza  }} del pub: {{ vot.pub  }}  
+            
+             <h2>Cerveza: {{ vot.cerveza  }}</h2>
+            <h3>Pub: {{ vot.pub  }} en calle {{ vot.pub.direccion_pub  }}: </h3>  
+            <p>Voto de: {{ vot.usuario }}</p>
         {% endfor %}
       
            </td>

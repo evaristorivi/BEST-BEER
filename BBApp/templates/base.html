@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="{% static 'img/beer.ico' %}">
 
     <title>{% block head_title %}{% endblock %}BEST-BEER</title>
 
@@ -23,8 +23,8 @@
       <div class="row">
         {% block head %}{% endblock %}
       </div>
-      <div class="row">
-        <div class="col-sm-8">
+      <div class="row justify-content-center">
+        <div class="col-sm-9">
           {% block content %}{% endblock %}
         </div>
       </div>
@@ -33,7 +33,7 @@
       {% block javascript %}{% endblock %}
     </script>
       </div>
-      <div>
+      <div align="center">
      <img width="88" src="{% static 'img/1.png' %}"/>
      <img width="88" src="{% static 'img/2.png' %}"/>
      <img width="88" src="{% static 'img/5.png' %}"/>
@@ -41,6 +41,10 @@
      <img width="88" src="{% static 'img/7.jpg' %}"/>
      <img width="88"src="{% static 'img/9.jpg' %}"/>
      <img width="88" src="{% static 'img/33.jpg' %}"/>
+     <br />
+     <br />
+     <p align="center">BeestBeer V2 Alpha Edition</p>
+     <p align="center">© 2018 Evaristo R</p>
      </div>
     </main>
 
