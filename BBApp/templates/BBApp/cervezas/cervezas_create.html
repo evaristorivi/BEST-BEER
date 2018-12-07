@@ -5,4 +5,18 @@
     {{ form.as_p }}
     <input type="submit" value="Save">
 </form>
+
+<div class="table-responsive">
+      <table class="table">
+      <tr>
+   {% for vot in object_list %}
+           <td> <img width="100" src="{{ vot.cerveza.foto.url }}" - {{ vot.pub  }}</li>
+            <br />
+            El usuario {{ vot.usuario }} ha calificado con {{ vot.voto  }} la cerveza: {{ vot.cerveza  }} del pub: {{ vot.pub  }}  Comentario: {{ vot.observaciones  }}
+        {% endfor %}
+      
+           </td>
+      </tr>
+    </table> 
+    </div>
 {% endblock %}

@@ -24,7 +24,6 @@ def update_user_profile(sender, instance, created, **kwargs):
 
 class Cerveza(models.Model):
     nombre_cerveza = models.CharField(max_length=200)
-    observaciones = models.TextField()
     foto = models.FileField(upload_to='BBApp/images/%Y/%m/%d')
     
     def __str__(self):
@@ -45,6 +44,3 @@ class Votaciones(models.Model):
     voto = models.IntegerField(default=0)
     cerveza = models.ForeignKey(Cerveza, on_delete=models.CASCADE)
     pub = models.ForeignKey(Pub, on_delete=models.CASCADE)
-
-    def __unicode__(self):
-        return '%s %d' % (self.usuario,self.voto)

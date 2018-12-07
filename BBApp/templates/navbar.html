@@ -1,32 +1,43 @@
- {% if request.user.is_staff %}
+ {% load static %}
+
+{% if request.user.is_staff %}
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-      <a class="navbar-brand" href="{% url 'home' %}">BEEST-BEER</a>
+      <a class="navbar-brand" href="{% url 'home' %}"> <img align="center" width="46" src="{% static 'img/beer.png' %}"/></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
+        <ul id="menu" class="navbar-nav mr-auto">
+          <li class="nav-item" class="active">
             <a class="nav-link" href="{% url 'cervezas_create' %}">Añadir Cervezas <span class="sr-only">(current)</span></a>
-          </li>
+         
           <li class="nav-item">
             <a class="nav-link" href="{% url 'pubs_create' %}">Añadir Pubs</a>
+               <li><a class="nav-link" href="{% url 'cervezas_list' %}">Ver Cervezas</a> </li>
+          </li>
+            <li><a class="nav-link" href="{% url 'pubs_list' %}">Ver Pubs</a> </li>
           </li>
          
         </ul>
   {% else %}
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-      <a class="navbar-brand" href="#">BEST-BEER</a>
+      <a class="navbar-brand" href="{% url 'home' %}"> <img align="center" width="46" src="{% static 'img/beer.png' %}"/></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{% url 'home' %}">Votar Cerveza <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'votaciones_list' %}">Top Cervezas <span class="sr-only">(current)</span></a>
           </li>
         </ul>
             {% endif %}     
+  
+
 
   <ul class="navbar-right navbar-nav mr-auto">
   {% if user.is_authenticated %}

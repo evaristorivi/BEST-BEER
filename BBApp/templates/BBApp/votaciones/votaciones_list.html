@@ -1,9 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
     <h2>The Beest Beer!</h2>
-    <ul>
-        {% for vot in object_list %}
-            <li>{{ vot.usuario }} - {{ vot.voto  }} - {{ vot.cerveza  }} - {{ vot.pub  }}</li>
+  
+
+      <table class="table table-dark">
+     
+   {% for vot in object_list %}
+    <tr>
+           <td> <img width="100" src="{{ vot.cerveza.foto.url }}" - {{ vot.pub  }}</li>
+            <br />
+            El usuario {{ vot.usuario }} ha calificado con {{ vot.voto  }} la cerveza: {{ vot.cerveza  }} del pub: {{ vot.pub  }}  
         {% endfor %}
-    </ul>
+      
+           </td>
+      </tr>
+    </table> 
 {% endblock %}

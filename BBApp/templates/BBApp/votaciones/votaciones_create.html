@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
- <h2>Votando a tu cerveza...</h2>
+ <h2>Votando a tu cerveza, como {{ request.user }}</h2>
 
 <form class="form-inline" method="post">{% csrf_token %}
 <div class="form-group">
 
-    {{ request.user }}
-    {{ form.cerveza }}
-    {{ form.voto }}
-    {{ form.pub }}
+    
+    {{ votaciones.usuario }}
+    {{ votaciones.voto }}
+    {{ votaciones.cerveza }}
+    {{ votaciones.pub }}
+
 
     <input type="submit" value="Save">
         </div>

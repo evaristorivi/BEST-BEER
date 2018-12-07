@@ -20,6 +20,19 @@ from django.shortcuts import render, redirect
 from BBApp.forms import SignUpForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.forms import formset_factory
+from django import forms
+from BBApp.models import *
+
+
+from django.http import Http404,HttpResponseRedirect,HttpResponse
+
+from django.contrib.auth import logout
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.views.generic.detail import DetailView
+import datetime                 
+from BBApp.forms import *
 
 def home(request):
     return render(request, 'home.html')
@@ -55,7 +68,6 @@ class UsuarioList(ListView):
 class CervezaList(ListView):
     model = Cerveza
     template_name="BBApp/cervezas/cervezas_list.html"
-
 
 class CervezaCreate(CreateView):
     model = Cerveza
@@ -100,6 +112,7 @@ class PubDelete(DeleteView):
 class VotacionesList(ListView):
     model = Votaciones
     template_name="BBApp/votaciones/votaciones_list.html"
+    ordering=['-voto']
 
 class VotacionesCreate(LoginRequiredMixin, CreateView):
     model = Votaciones
@@ -107,4 +120,24 @@ class VotacionesCreate(LoginRequiredMixin, CreateView):
     login_url = '/login/'
     template_name="BBApp/votaciones/votaciones_create.html"
     success_url = reverse_lazy('votaciones_list')
+#    def form_valid(self, form):
+#        form.votaciones.usuario = self.request.user
+#        return super().form_valid(form)
 
+@login_required(login_url='/login/')
+def crearVoto(request):
+    if request.method == 'POST':
+        form1 = CrearVotoForm(request.POST)
+        if form1.is_valid():
+            votaciones = Votaciones()
+            usuario = Usuario.objects.get(user=request.user)
+            votaciones.usuario = usuario
+            votaciones.voto = form1.cleaned_data.get('voto')
+            votaciones.cerveza = form1.cleaned_data.get('cerveza')
+            votaciones.pub = form1.cleaned_data.get('pub')
+            votaciones.save()
+            return HttpResponseRedirect('/votaciones/')
+    else:
+        form1 = CrearVotoForm()
+    return render(request,'BBApp/votaciones/votaciones_create.html',{'votaciones':form1})
+        
