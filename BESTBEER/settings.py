@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'BBApp',
     'django_extensions',
-]
+]   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

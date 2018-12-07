@@ -8,8 +8,8 @@ from django.dispatch import receiver
 # Create your models here.
 
 class Usuario(models.Model):
-    localidad = models.CharField(max_length=200)
-    estado_civil = models.EmailField(max_length=70,blank=True)
+    edadok = models.NullBooleanField()
+    acepto = models.NullBooleanField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
     def __unicode__(self):

@@ -44,8 +44,8 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
-            user.usuario.localidad = form.cleaned_data.get('localidad')
-            user.usuario.estado_civil = form.cleaned_data.get('estado_civil')
+            user.usuario.edadok = form.cleaned_data.get('edadok')
+            user.usuario.acepto = form.cleaned_data.get('acepto')
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=user.username, password=raw_password)
@@ -59,55 +59,81 @@ def signup(request):
 
 
 
-class UsuarioList(ListView):
+class UsuarioList(UserPassesTestMixin,ListView):
     model = Usuario
+    login_url='/login/'
     template_name="BBApp/usuarios/usuarios_list.html"
+    def test_func(self):
+        return self.request.user.is_staff == True
 
 
-
-class CervezaList(ListView):
+class CervezaList(UserPassesTestMixin,ListView):
     model = Cerveza
+    login_url='/login/'
     template_name="BBApp/cervezas/cervezas_list.html"
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class CervezaCreate(CreateView):
+class CervezaCreate(UserPassesTestMixin,CreateView):
     model = Cerveza
+    login_url='/login/'
     fields = '__all__'
     template_name="BBApp/cervezas/cervezas_create.html"
     success_url = reverse_lazy('cervezas_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class CervezaUpdate(UpdateView):
+class CervezaUpdate(UserPassesTestMixin,UpdateView):
     model = Cerveza
+    login_url='/login/'
     fields = '__all__'
     template_name="BBApp/cervezas/cervezas_update.html"
     success_url = reverse_lazy('cervezas_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class CervezaDelete(DeleteView):
+class CervezaDelete(UserPassesTestMixin,DeleteView):
     model = Cerveza
+    login_url='/login/'
     fields = '__all__'
     template_name="BBApp/cervezas/cervezas_delete.html"
     success_url = reverse_lazy('cervezas_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class PubList(ListView):
+class PubList(UserPassesTestMixin,ListView):
     model = Pub
+    login_url='/login/'
     template_name="BBApp/pubs/pubs_list.html"
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class PubCreate(CreateView):
+class PubCreate(UserPassesTestMixin,CreateView):
     model = Pub
+    login_url='/login/'
     fields = '__all__'
     template_name="BBApp/pubs/pubs_create.html"
     success_url = reverse_lazy('pubs_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class PubUpdate(UpdateView):
+class PubUpdate(UserPassesTestMixin,UpdateView):
     model = Pub
+    login_url='/login/'
     fields = '__all__'
     template_name="BBApp/pubs/pubs_update.html"
     success_url = reverse_lazy('pubs_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
-class PubDelete(DeleteView):
+class PubDelete(UserPassesTestMixin,DeleteView):
     model = Pub
+    login_url='/login/'
     fields = '__all__'
     template_name="BBApp/pubs/pubs_delete.html"
     success_url = reverse_lazy('pubs_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
 class VotacionesList(ListView):
     model = Votaciones

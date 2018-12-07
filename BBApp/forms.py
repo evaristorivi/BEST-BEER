@@ -5,13 +5,13 @@ from .models import *
 from django.forms import formset_factory
 
 class SignUpForm(UserCreationForm):
-    localidad = forms.CharField(max_length=30, required=False, help_text='Optional.')
-    estado_civil = forms.CharField(max_length=30, required=False, help_text='Optional.')
+    edadok = forms.BooleanField(required=True)
+    acepto = forms.BooleanField(required=True)
     
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'localidad', 'estado_civil',  'password1', 'password2',  )
+        fields = ('username', 'first_name', 'last_name', 'email', 'edadok', 'acepto',  'password1', 'password2',  )
 
 
 class CrearVotoForm(forms.Form):

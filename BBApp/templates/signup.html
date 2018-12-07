@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
   <h2>Registro</h2>
@@ -16,18 +17,15 @@
     <p>email</p>
     {{ form.email }}
 
-    <p>Localidad</p>
-    {{ form.localidad }}
-
-    <p>Estado Civil</p>
-    {{ form.estado_civil }}
-
     <p>Contraseña (solo contraseñas seguras)</p>
     {{ form.password1 }}
 
      <p>Confirmación de Contraseña</p>
     {{ form.password2 }}
 
+    <p></p>
+    <p>{{ form.edadok }} Tengo más de 18 años</p>
+    <p>{{ form.acepto }} Acepto los <a target="_blank" href="{% static 'html/terminos.html' %}"> términos y condiciones </a></p>
 
     <button type="submit">Enviar</button>
   </form>
