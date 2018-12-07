@@ -33,6 +33,12 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.views.generic.detail import DetailView
 import datetime                 
 from BBApp.forms import *
+from django.contrib.auth.models import Group
+from rest_framework import serializers
+
+from rest_framework import viewsets
+from BBApp.serializers import UserSerializer, GroupSerializer
+
 
 def home(request):
     return render(request, 'home.html')
@@ -167,3 +173,27 @@ def crearVoto(request):
         form1 = CrearVotoForm()
     return render(request,'BBApp/votaciones/votaciones_create.html',{'votaciones':form1})
         
+
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
+
+
+class GroupViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Group.objects.all()
+    serializer_class = GroupSerializer
+
+class CervezaAPI(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Cerveza.objects.all()
+    serializer_class = GroupSerializer

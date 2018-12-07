@@ -20,10 +20,19 @@ from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.conf.urls import include
 
 from BBApp.views import *
 from BBApp.forms import *
+from django.contrib.auth.models import User
+from rest_framework import routers, serializers, viewsets
+
+from BBApp import views
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
+router.register(r'cervezasapi', views.CervezaAPI)
 
 
 
@@ -44,6 +53,8 @@ urlpatterns = [
     url(r'^pub/delete', PubDelete.as_view(), name="pubs_delete"),
     url(r'^votaciones/$', VotacionesList.as_view(), name="votaciones_list"),
     url(r'^votaciones/create', crearVoto, name="crearVoto"),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:

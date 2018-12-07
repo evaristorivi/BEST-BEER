@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'BBApp',
     'django_extensions',
+    'rest_framework'
 ]   
 
 MIDDLEWARE = [
@@ -130,3 +131,12 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "static_root
 MEDIA_ROOT  = os.path.join(os.path.dirname(BASE_DIR), "static_env", "media_root")
 
 LOGIN_REDIRECT_URL = 'home'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+
+    ]
+}

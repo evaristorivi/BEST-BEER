@@ -1,2 +1,5 @@
 django
 django_extensions
+djangorestframework
+markdown
+django-filter
