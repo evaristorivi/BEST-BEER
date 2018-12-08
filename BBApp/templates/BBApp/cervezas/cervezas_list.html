@@ -2,11 +2,12 @@
 
 {% block content %}
     <h2>Cervezas</h2>
-    <table class="table table-dark">
-      <tr>
-
+    <table class="table-responsive table-dark">
+       <tr>
         {% for cer in object_list %}
-           <td> {{ cer.nombre_cerveza  }} - {{ cer.observaciones  }} - <img width="100" src="{{ cer.foto.url }}"></li>
+       
+<td>
+           {{ cer.nombre_cerveza  }} - {{ cer.observaciones  }} - <img width="100" src="{{ cer.foto.url }}">
         {% endfor %}
            </td>
       </tr>
