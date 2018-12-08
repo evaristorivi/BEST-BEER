@@ -1,14 +1,25 @@
 {% extends "base.html" %}
-
 {% block content %}
+
 {% csrf_token %}
     <h2>Pubs</h2>
-    <ul>
-        {% for pub in object_list %}
-            <li>{{ pub.nombre_pub  }} - {{ pub.direccion_pub  }}</li>
+
+<table class="table-responsive">
+      {% for pub in object_list %}
+       <tr>
+       <td>
+            <h2>{{ pub.nombre_pub  }} en 
+            {{ pub.direccion_pub  }}</h2>
+            <h5>Con las cervezas:</h5>
+            <p> 
             {% for birra in pub.cerveza.all %}
-            	{{ birra }}
-            {% endfor %}
+            	{{ birra }} </p>
+            
+            {% endfor %} 
+
         {% endfor %}
-    </ul>
+
+</td>
+</tr>
+</table>
 {% endblock %}
