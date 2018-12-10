@@ -4,7 +4,7 @@
     <h2>Usuarios</h2>
     <ul>
         {% for usr in object_list %}
-            <li>{{ usr.user  }} - {{ usr.user.email  }}</li>
+            <li> {{ usr.user  }} - {{ usr.user.email  }}</li> <a href="{% url 'usuarios_delete' usr.user.pk %}"><button>Eliminar</button></a>
         {% endfor %}
     </ul>
 {% endblock %}

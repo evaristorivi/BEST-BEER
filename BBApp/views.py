@@ -72,6 +72,14 @@ class UsuarioList(UserPassesTestMixin,ListView):
     def test_func(self):
         return self.request.user.is_staff == True
 
+class UsuarioDelete(UserPassesTestMixin,DeleteView):
+    model = User
+    login_url='/login/'
+    fields = '__all__'
+    template_name="BBApp/usuarios/usuarios_delete.html"
+    success_url = reverse_lazy('usuarios_list')
+    def test_func(self):
+        return self.request.user.is_staff == True
 
 class CervezaList(UserPassesTestMixin,ListView):
     model = Cerveza

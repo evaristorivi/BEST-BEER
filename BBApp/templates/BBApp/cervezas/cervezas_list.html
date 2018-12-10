@@ -8,7 +8,7 @@
        
 <td>
              <img width="100" src="{{ cer.foto.url }}">
-             <p align="center"> {{ cer.pk }} {{ cer.nombre_cerveza  }} <a href="{% url 'cervezas_update' cer.pk %}"><button>Modificar</button></a>
+             <p align="center"> {{ cer.nombre_cerveza  }} <a href="{% url 'cervezas_update' cer.pk %}"><button>Modificar</button></a>
 	<a href="{% url 'cervezas_delete' cer.pk %}"><button>Eliminar</button></a></p>
         {% endfor %}
            </td>

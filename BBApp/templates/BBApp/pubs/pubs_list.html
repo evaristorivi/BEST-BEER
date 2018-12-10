@@ -16,7 +16,8 @@
             	{{ birra }} </p>
             
             {% endfor %} 
-
+<a href="{% url 'pubs_update' pub.pk %}"><button>Modificar</button></a>
+	<a href="{% url 'pubs_delete' pub.pk %}"><button>Eliminar</button></a>
         {% endfor %}
 
 </td>

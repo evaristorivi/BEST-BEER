@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^usuarios/$', UsuarioList.as_view(), name="usuarios_list"),
+    url(r'^usuarios/delete/(?P<pk>\d+)', UsuarioDelete.as_view(), name="usuarios_delete"),
     url(r'^cervezas/$', CervezaList.as_view(), name="cervezas_list"),
     url(r'^cervezas/create', CervezaCreate.as_view(), name="cervezas_create"),
     url(r'^cervezas/update/(?P<pk>\d+)', CervezaUpdate.as_view(), name="cervezas_update"),
