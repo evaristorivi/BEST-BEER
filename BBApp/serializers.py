@@ -9,14 +9,24 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'username', 'email', 'groups')
 
 
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ('url', 'name')
+
 
 class CervezaSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Cerveza
-        fields = ('nombre_cerveza', 'foto')
+        fields = '__all__'
 
+
+class PubsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Pub
+        fields = '__all__'
+
+class VotacionesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Votaciones
+        fields = '__all__'
+
+
+        
 

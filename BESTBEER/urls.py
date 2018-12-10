@@ -30,10 +30,10 @@ from rest_framework import routers, serializers, viewsets
 from BBApp import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'usuariosapi', views.UserViewSet)
 router.register(r'cervezasapi', views.CervezaAPI)
-
+router.register(r'pubsapi', views.PubsAPI)
+router.register(r'votacionesapi', views.VotacionesAPI)
 
 
 urlpatterns = [

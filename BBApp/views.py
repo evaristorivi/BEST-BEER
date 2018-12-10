@@ -37,8 +37,9 @@ from django.contrib.auth.models import Group
 from rest_framework import serializers
 
 from rest_framework import viewsets
-from BBApp.serializers import UserSerializer, GroupSerializer
-
+from BBApp.serializers import *
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 def home(request):
     return render(request, 'home.html')
@@ -186,22 +187,34 @@ def crearVoto(request):
 
 class UserViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API 
     """
+   
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
 
 class CervezaAPI(viewsets.ModelViewSet):
     """
-    API endpoint that allows groups to be viewed or edited.
+    API 
     """
+    
     queryset = Cerveza.objects.all()
-    serializer_class = GroupSerializer
+    serializer_class = CervezaSerializer
+
+class PubsAPI(viewsets.ModelViewSet):
+    """
+    API 
+    """
+    
+    queryset = Pub.objects.all()
+    serializer_class = PubsSerializer
+
+
+class VotacionesAPI(viewsets.ModelViewSet):
+    """
+    API 
+    """
+    queryset = Votaciones.objects.all()
+    serializer_class = VotacionesSerializer
