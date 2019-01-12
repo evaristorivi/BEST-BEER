@@ -54,7 +54,7 @@ urlpatterns = [
     url(r'^pub/delete/(?P<pk>\d+)', PubDelete.as_view(), name="pubs_delete"),
     url(r'^votaciones/$', VotacionesList.as_view(), name="votaciones_list"),
     url(r'^votaciones/create', crearVoto, name="crearVoto"),
-    url(r'^', include(router.urls)),
+    url(r'^api-rest', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
