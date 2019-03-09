@@ -1,26 +1,10 @@
 {% load static %}
 {% load analytical %}
-{% load recaptcha3 %}
-
-
 <!doctype html>
 <html lang="en">
   <head>
-  {% recaptcha_init %}
-  {% recaptcha_ready action_name='home' %}
-
 {% analytical_head_top %}
- <script src="https://www.google.com/recaptcha/api.js?render=6LfGk5YUAAAAAFVjuq7mr2VCq-0W4iVkbYc0_2zW"></script>
-      <script>
-        grecaptcha.ready(function() {
-          grecaptcha.execute('reCAPTCHA_site_key', {action: 'homepage'}).then(function(token) {
-            document.querySelectorAll('input.django-recaptcha-hidden-field').forEach(function (value) {
-                value.value = token;
-            });
-            return token;         
-          });
-        });
-      </script>
+
 
 
     <meta charset="utf-8">

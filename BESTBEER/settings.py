@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'analytical',
     'django_openid_auth',
     'social_django',
-    'snowpenguin.django.recaptcha3',
+
 ]   
 
 MIDDLEWARE = [
@@ -172,9 +172,3 @@ LOGIN_REDIRECT_URL = "/"
 
 SOCIAL_AUTH_FACEBOOK_KEY ='1772486726191045'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'c28aadb3f5530e04d26334546bbe22d9'
-
-
-RECAPTCHA_PRIVATE_KEY = '6LfGk5YUAAAAAAexMp4o1qFyoX6kc_z5GEdWthhq'
-RECAPTCHA_PUBLIC_KEY = '6LfGk5YUAAAAAFVjuq7mr2VCq-0W4iVkbYc0_2zW'
-RECAPTCHA_DEFAULT_ACTION = 'generic'
-RECAPTCHA_SCORE_THRESHOLD = 0.5

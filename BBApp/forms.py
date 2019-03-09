@@ -3,9 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import *
 from django.forms import formset_factory
-from snowpenguin.django.recaptcha3.fields import ReCaptchaField
-
-
 
 class SignUpForm(UserCreationForm):
     edadok = forms.BooleanField(required=True)
@@ -21,4 +18,3 @@ class CrearVotoForm(forms.Form):
 	voto = forms.IntegerField(max_value=5,min_value=0)
 	cerveza = forms.ModelChoiceField(queryset=Cerveza.objects.all())
 	pub = forms.ModelChoiceField(queryset=Pub.objects.all())
-	captcha = ReCaptchaField()
