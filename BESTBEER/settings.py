@@ -157,6 +157,7 @@ AUTHENTICATION_BACKENDS = (
     'django_openid_auth.auth.OpenIDBackend',
     'django.contrib.auth.backends.ModelBackend',
     'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
 )
 
 SOCIAL_AUTH_GITHUB_KEY = 'db04ba3a3fc91cab077a'
@@ -165,3 +166,7 @@ SOCIAL_AUTH_GITHUB_SECRET = 'd9bfa03d449aa988e3d475bbff86cfae60a2ed60'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = "/"
+
+
+SOCIAL_AUTH_FACEBOOK_KEY ='1772486726191045'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'c28aadb3f5530e04d26334546bbe22d9'
