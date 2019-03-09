@@ -55,7 +55,9 @@ urlpatterns = [
     url(r'^votaciones/$', VotacionesList.as_view(), name="votaciones_list"),
     url(r'^votaciones/create', crearVoto, name="crearVoto"),
     url(r'^api-rest', include(router.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^openid/', include('django_openid_auth.urls')),
+
 ]
 
 if settings.DEBUG:
