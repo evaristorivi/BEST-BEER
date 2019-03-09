@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'BBApp',
     'django_extensions',
     'rest_framework',
+    'analytical',
     'django_openid_auth',
     'social_django',
+
 ]   
 
 MIDDLEWARE = [

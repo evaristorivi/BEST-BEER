@@ -1,7 +1,12 @@
 {% load static %}
+{% load analytical %}
 <!doctype html>
 <html lang="en">
   <head>
+{% analytical_head_top %}
+
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -11,9 +16,32 @@
     <title>{% block head_title %}{% endblock %}BEST-BEER</title>
 
  {% include "head_css.html" %}
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="http://evaristo.duckdns.org/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="http://evaristo.duckdns.org/piwik.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+{% analytical_head_bottom %}
+
+
+
   </head>
 
   <body>
+{% analytical_body_top %}
+
 
    {% include "navbar.html" %}
     <main role="main" class="container">
@@ -57,10 +85,11 @@
     <script src="{% static 'js/assets_js_vendor_popper.min.js' %}"></script>
     <script src="{% static 'js/dist_js_bootstrap.min.js' %}"></script>
   
+{% analytical_body_bottom %}
+
 
   </body>
 </html>
-
 
   
 
