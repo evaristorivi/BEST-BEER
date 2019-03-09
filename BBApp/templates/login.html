@@ -12,4 +12,7 @@
     {{ form.password }}
     <button type="submit">Acceder</button>
   </form>
+<a href="https://bestbeer.duckdns.org/openid/login">Acceder con OpenID</a>
+<br />
+<a href="{% url 'social:begin' 'github' %}">Acceder con Github</a>
 {% endblock %}
