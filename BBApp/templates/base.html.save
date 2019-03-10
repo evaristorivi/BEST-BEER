@@ -1,16 +1,12 @@
 {% load static %}
 {% load analytical %}
+{% load recaptcha3 %}
+
+
 <!doctype html>
 <html lang="en">
   <head>
-
- <script src="https://www.google.com/recaptcha/api.js?render=6LcKqpYUAAAAAB8QRCoWmoPZLj-nqHun0KEUQhcj"></script>
-  <script>
-  grecaptcha.ready(function() {
-      grecaptcha.execute('6LcKqpYUAAAAAB8QRCoWmoPZLj-nqHun0KEUQhcj', {action: 'homepage'}).then(function(token) {});
-  });
-  </script>
-
+  {% recaptcha_init %}    {% recaptcha_ready action_name='homepage' %}
 
 {% analytical_head_top %}
 
@@ -82,7 +78,7 @@
      <br />
      <p align="center">Best-Beer V3.0 Alpha Edition</p>
           <img width="111" src="{% static 'img/giphy.gif' %}"/>
-     <p align="center">© 2019 Evaristo R</p>
+     <p align="center">© 2018 Evaristo R</p>
      </div>
     </main>
 
