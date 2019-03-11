@@ -38,7 +38,7 @@ router.register(r'votacionesapi', views.VotacionesAPI)
 
 urlpatterns = [
     url(r'^signup/$', signup, name='signup'),
-    url(r'^$', crearVoto, name="home"),
+    url(r'^$', VotacionesList.as_view(), name="home"),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^admin/', admin.site.urls),
