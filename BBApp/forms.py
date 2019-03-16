@@ -18,3 +18,5 @@ class CrearVotoForm(forms.Form):
 	voto = forms.IntegerField(max_value=5,min_value=0)
 	cerveza = forms.ModelChoiceField(queryset=Cerveza.objects.all())
 	pub = forms.ModelChoiceField(queryset=Pub.objects.all())
+
+

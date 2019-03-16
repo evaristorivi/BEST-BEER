@@ -7,6 +7,9 @@
     {% csrf_token %}
     <p>Usuario</p>
     {{ form.username }}
+    {% for field in form.visible_fields %}
+    {{ field.errors }}
+    {% endfor %}
 
     <p>Primer Nombre</p>
     {{ form.first_name }}
@@ -28,7 +31,14 @@
     <p>{{ form.acepto }} Acepto los <a target="_blank" href="{% static 'html/terminos.html' %}"> términos y condiciones </a></p>
 
     <button type="submit">Enviar</button>
-  </form>
-{% endblock %}
 
+
+  </form>
+
+
+
+
+
+
+{% endblock %}
 
